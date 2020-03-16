@@ -3,52 +3,52 @@
     <thead>
       <tr>
         <th colspan="4">
-          <span class="float-right" style="padding-right: 5px; color: #e2e2e2; ">0</span>
-          <input type="text" value="0" readonly>
+          <input type="text" value="{{opBar}}" readonly>
+          <input type="text" value="{{resulBar}}" readonly>
         </th>
       </tr>
     </thead>
     <tbody>
       <tr id="l1">
-        <td><button>C</button></td>
-        <td><button>%</button></td>
-        <td><button>
+        <td><button (click)="Borrar()">C</button></td>
+        <td><button (click)="BorradoParcial()">CE</button></td>
+        <td><button (click)="Backspace()">
           <img src="https://img.icons8.com/material-sharp/24/000000/clear-symbol.png">
         </button></td>
-        <td><button id="c">
+        <td><button id="c" (click)="Operacion('/')">
           <img src="https://img.icons8.com/metro/26/4b2a00/divide.png">
         </button></td>
       </tr>
       <tr>
-        <td><button>7</button></td>
-        <td><button>8</button></td>
-        <td><button>9</button></td>
+        <td><button (click)="btnNumero('7')">7</button></td>
+        <td><button (click)="btnNumero('8')">8</button></td>
+        <td><button (click)="btnNumero('9')">9</button></td>
         <td>
-          <button id="c">x</button>
+          <button id="c" (click)="Operacion('*')">x</button>
         </td>
       </tr>
       <tr>
-        <td><button>4</button></td>
-        <td><button>5</button></td>
-        <td><button>6</button></td>
+        <td><button (click)="btnNumero('4')">4</button></td>
+        <td><button (click)="btnNumero('5')">5</button></td>
+        <td><button (click)="btnNumero('6')">6</button></td>
         <td>
-          <button id="c">-</button>
+          <button id="c" (click)="Operacion('-')">-</button>
         </td>
       </tr>
       <tr>
-        <td><button>1</button></td>
-        <td><button>2</button></td>
-        <td><button>3</button></td>
+        <td><button (click)="btnNumero('1')">1</button></td>
+        <td><button (click)="btnNumero('2')">2</button></td>
+        <td><button (click)="btnNumero('3')">3</button></td>
         <td>
-          <button id="c">+</button>
+          <button id="c" (click)="Operacion('+')">+</button>
         </td>
       </tr>
       <tr>
-        <td><button>+/-</button></td>
-        <td><button>0</button></td>
-        <td><button>,</button></td>
+        <td><button (click)="masMenos()">+/-</button></td>
+        <td><button (click)="btnNumero('0')">0</button></td>
+        <td><button (click)="btnPunto()">.</button></td>
         <td>
-          <button id="iqual">=</button>
+          <button id="iqual" ngModel="press" (click)="Resul()">=</button>
         </td>
       </tr>
     </tbody>
@@ -57,24 +57,9 @@
     <div style="min-height: 450px;">
       <h3 class="mt-2" style="color: white; text-align: center;">Historial</h3>
       <ul style="list-style: none; padding: 0;">
-        <li>
-            <span style="float: left;">5 + 5 = 10</span> 
-            <span class="fa fa-remove"></span>
-        </li>
-        <li>
-          <span class="float-left">10 - 5 = 5</span>  
-          <span class="fa fa-remove"></span>
-        <li>
-          <span class="float-left">9 x 10 = 90</span>  
-          <span class="fa fa-remove" style="font-size: 1rem; color: #ff7575;"></span>
-        </li>
-        <li>          
-          <span class="float-left">4 - 4 = 0</span>  
-          <span class="fa fa-remove" style="font-size: 1rem; color: #ff7575;"></span>
-        </li>
-        <li>           
-          <span class="float-left">2 / 2 = 1</span>  
-          <span class="fa fa-remove" style="font-size: 1rem; color: #ff7575;"></span>
+        <li *ngFor="let i of result">
+            <span style="float: left;">{{i}}</span> 
+            <span class="fa fa-remove" (click)="Eliminar(i.index)"></span>
         </li>
       </ul>
     </div>
