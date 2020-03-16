@@ -1,0 +1,14 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css';
+
+body{
+    /*overflow: hidden;*/
+    font-family: monospace;
+    font-size: 2em;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+@-o-viewport {
+    max-zoom: 100%;
+}
