@@ -77,6 +77,7 @@ export class AppComponent {
   Borrar(){
     this.resulBar = '';
     this.opBar = '0';
+    this.num = '0';
   }
 
   BorradoParcial(){
